@@ -1,5 +1,6 @@
 // import './key/key.js'
 import Axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import { useState } from 'react';
@@ -20,17 +21,25 @@ function App() {
     console.log(result);
     
   }
+
+  const Onsubmit = (event) =>{
+    event.preventDefault();
+    getRecipes();
+  }
+
   return (
     <div className="App">
      <h1 onClick = {getRecipes}>Recipz 🍚</h1>
 
-     <form className = "App_serchForm">
+     <form className = "App_searchForm" onSubmit = {Onsubmit}>
        <input
         type="text"
+        className = "App_input"
         placeholder = "Enter Valid Ingredient"
         value={query}
         onChange={(e)=>setQuery(e.target.value)}
        />
+       <input className = "app_submit btn btn-outline-primary btn-space btn-block" type = "submit" value = "Search" />
      </form>
     </div>
   );
