@@ -1,0 +1,14 @@
+.Tile_img
+{
+    height : 200px;
+    width : 200px;
+    border-radius : 10px;
+
+}
+
+.Tile_name
+{
+    max-width : 200px;
+    text-align : center;
+    margin : 12px;
+}

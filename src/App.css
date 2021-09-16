@@ -28,3 +28,11 @@
   font-size : 15px;
   margin-left : 10px;
 }
+
+.recipe_grid
+{
+  display : grid !important;
+  margin-top : 20px;
+  grid-template-columns: 250px 250px;
+  align-items : baseline;
+}
