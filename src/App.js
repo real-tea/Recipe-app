@@ -8,6 +8,7 @@ import { useState } from 'react';
 function App() {
 
   const [ query , setQuery] = useState("")
+  const [ recipes , setRecipes ] = useState([]);
     
   const YOUR_APP_ID = "b1dda41e";
   const YOUR_APP_KEY = "2a667764448a09bf641f68df28cd3cdd";
@@ -18,6 +19,7 @@ function App() {
   async function getRecipes()
   {
     const result = await Axios.get(url);
+    setRecipes(result.data.hits)
     console.log(result);
     
   }
@@ -41,6 +43,11 @@ function App() {
        />
        <input className = "app_submit btn btn-outline-primary btn-space btn-block" type = "submit" value = "Search" />
      </form>
+     <div>
+       {recipes.map(recipe=>{
+         return(<p>{recipe["recipe"]["label"]}</p>)
+       })}
+     </div>
     </div>
   );
 }
