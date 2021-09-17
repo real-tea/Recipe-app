@@ -13,11 +13,11 @@ function App() {
   const [ recipes , setRecipes ] = useState([]);
   const [ healthLabels , sethealthLabels ] = useState("vegetarian")
     
-  const YOUR_APP_ID = "b1dda41e";
-  const YOUR_APP_KEY = "2a667764448a09bf641f68df28cd3cdd";
+  const YOUR_APP_ID = "853851a8";
+  const YOUR_APP_KEY = "7a583090fd9a1bbee5f6eb460773eccd";
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}
-  &calories=591-722&health=${healthLabels}`;
+  &health=${healthLabels}`;
 
   async function getRecipes()
   {
@@ -52,7 +52,11 @@ function App() {
        <input className = "app_submit btn btn-outline-primary btn-space btn-block" type = "submit" value = "Search" />
      
         <select className = "health_labels">
-          <option onCLick = {() =>{ sethealthLabels("vegetarian")}}>Vegetarian</option>
+          <option onClick = {() =>{ sethealthLabels("vegetarian")}}>Vegetarian</option>
+          <option onClick = {() =>{ sethealthLabels("vegan")}}>Vegan</option>
+          <option onClick = {() =>{ sethealthLabels("dairy-free")}}>Dairy-free</option>
+          <option onClick = {() =>{ sethealthLabels("fat-free")}}>fat-free</option>
+          <option onClick = {() =>{ sethealthLabels("low-sugar")}}>Less Sugar</option>
           
         </select>
      </form>
